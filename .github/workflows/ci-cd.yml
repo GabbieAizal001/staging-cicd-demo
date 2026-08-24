@@ -1,3 +1,4 @@
+
 name: CI/CD Pipeline
 
 on:
@@ -18,7 +19,7 @@ jobs:
 
       - name: Install dependencies and run tests
         run: |
-          pip install pytest
+          pip install --retries 5 --timeout 30 pytest
           pytest
 
   build-and-push:
